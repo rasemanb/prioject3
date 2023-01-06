@@ -445,16 +445,89 @@ for (var i = 0; i < locations.length; i++ ) {
             color: "white",
             fillColor: "white",
             radius: markerSize(locations[i].country.gdp)
-        })
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
     );
     countryTwo.push(
         L.circle(locations[i].coordinates, {
             stroke: false,
             fillOpcaity:,
-
-        }
-            )
-    )
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countryThree.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countryFour.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countryFive.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countrySix.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countrySeven.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countryEight.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countryNine.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );
+    countryTen.push(
+        L.circle(locations[i].coordinates, {
+            stroke:false,
+            fillOpacity: 0.75,
+            color: ,
+            fillColor: ,
+            radius: markerSize(locations[i].country.gdp)
+        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+    );    
 }
 
 // Create seperate layer groups for each year
