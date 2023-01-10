@@ -1,5 +1,5 @@
     // Create the map object the options
-var myMap = L/map("map", {
+var myMap = L.map("map", {
     center: [],
     zoom: 12,
     layers: []
@@ -19,9 +19,9 @@ function markerSize(gdp) {
 //Create an array that contains all of the information to create the markers for country & info
 var locations = [
     { 
-        coordinates: [,],
+        coordinates: [49.815273, 6.129583],
         country: {
-            name:
+            name: Luxembourg
         },
         year: {
             2011: {
@@ -60,9 +60,9 @@ var locations = [
         }
     };
     { 
-        coordinates: [,],
+        coordinates: [53.41291,-8.24389],
         country: {
-            name:
+            name: Ireland
         },
         year: {
             2011: {
@@ -101,9 +101,9 @@ var locations = [
         }
     };
     { 
-        coordinates: [,],
+        coordinates: [60.472024,8.468946],
         country: {
-            name:
+            name: Norway
         },
         year: {
             2011: {
@@ -141,9 +141,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [46.818188,8.227512],
         country: {
-            name:
+            name: Switzerland
         },
         year: {
             2011: {
@@ -181,9 +181,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [25.354826,51.183884],
         country: {
-            name:
+            name: Qatar
         },
         year: {
             2011: {
@@ -221,9 +221,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [4.535277,114.727669],
         country: {
-            name:
+            name: Brunei
         },
         year: {
             2011: {
@@ -261,9 +261,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [1.352083,103.819836],
         country: {
-            name:
+            name: Singapore
         },
         year: {
             2011: {
@@ -301,9 +301,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [37.09024,-95.712891],
         country: {
-            name:
+            name: United States
         },
         year: {
             2011: {
@@ -341,9 +341,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [64.963051,-19.020835],
         country: {
-            name:
+            name: Iceland
         },
         year: {
             2011: {
@@ -381,9 +381,9 @@ var locations = [
             }
         }
     };    { 
-        coordinates: [,],
+        coordinates: [56.26392,9.501785],
         country: {
-            name:
+            name: Denmark
         },
         year: {
             2011: {
