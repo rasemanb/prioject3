@@ -1,9 +1,4 @@
     // Create the map object the options
-var myMap = L.map("map", {
-    center: [],
-    zoom: 12,
-    layers: []
-});
 
 // Adding the tile layer
 // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -13,490 +8,597 @@ var myMap = L.map("map", {
 
 //Create a function to determine the marker size based on the population
 function markerSize(gdp) {
-    return Math.sqrt(gdp) * 50;
-}
+    return Math.sqrt(gdp) * .5;
+};
 
-//Create an array that contains all of the information to create the markers for country & info
+//An array that contains all of the top 10 country's GDP & GNI information for the past 10 years
 var locations = [
     { 
-        coordinates: [49.815273, 6.129583],
+        coordinates: [37.09024	, -95.712891],
         country: {
-            name: Luxembourg
+            name: "United States"
         },
         year: {
-            2012: {
-                gdp: 59776383527,
-                gni: 45915520598
+            twelve: {
+                year: 2012,
+                gdp: 16254000000000,
+                gni: 52790000
             },
-            2013: {
-                gdp: 65203276467,
-                gni: 46779637636
+            thirteen: {
+                year: 2013,
+                gdp: 16843200000000,
+                gni: 53990000
             },
-            2014: {
-                gdp: 68804811898,
-                gni: 49979926557
+            fourteen: {
+                year: 2014,
+                gdp: 17550700000000,
+                gni: 55800000
             },
-            2015: {
-                gdp: 60071584216,
-                gni: 38657980989
+            fifteen: {
+                year: 2015,
+                gdp: 18206000000000,
+                gni: 56620000
             },
-            2016: {
-                gdp: 62216885436,
-                gni: 41225831606
+            sixteen: {
+                year: 2016,
+                gdp: 18695100000000,
+                gni: 57140000
             },
-            2017: {
-                gdp: 65712180343,
-                gni: 47031112675
+            seventeen: {
+                year: 2017,
+                gdp: 19477300000000,
+                gni: 59220000
             },
-            2018: {
-                gdp: 71000359760,
-                gni: 50751283868
+            eighteen: {
+                year: 2018,
+                gdp: 20533100000000,
+                gni: 63460000
             },
-            2019: {
-                gdp: 69825641851,
-                gni: 47012779829
+            nine: {
+                year: 2019,
+                gdp: 21381000000000,
+                gni: 66130000
             },
-            2020: {
-                gdp: 73992591285,
-                gni: 51101739695
+            twenty: {
+                year: 2020,
+                gdp: 21060500000000,
+                gni: 64650000
             },
-            2021: {
-                gdp: 85506243834,
-                gni: 59692666902
+            twentyone: {
+                year: 2021,
+                gdp: 23315100000000,
+                gni: 70930000
+
             }
         }
-    };
+    },
     { 
-        coordinates: [53.41291,-8.24389],
+        coordinates: [35.86166,104.195397],
         country: {
-            name: Ireland
+            name: "China"
         },
         year: {
-            2012: {
-                gdp: 2.25629E+11,
-                gni: 1.82483E+11
+            twelve: {
+                year: 2012,
+                gdp: 8532230000000,
+                gni: 5910000
             },
-            2013: {
-                gdp: 2.38341E+11,
-                gni: 2.01478E+11	
+            thirteen: {
+                year: 2013, 
+                gdp: 9570410000000,
+                gni: 6740000
             },
-            2014: {
-                gdp: 2.59171E+11,
-                gni: 2.19223E+11	
+            fourteen: {
+                year: 2014,
+                gdp: 10475700000000,
+                gni: 7470000
             },
-            2015: {
-                gdp: 2.91775E+11,
-                gni: 2.24609E+11	
+            fifteen: {
+                year: 2015,
+                gdp: 11061600000000,
+                gni: 7890000
             },
-            2016: {
-                gdp: 2.99091E+11,
-                gni: 2.43913E+11	
+            sixteen: {
+                year: 2016,
+                gdp: 11233300000000,
+                gni: 8210000
             },
-            2017: {
-                gdp: 3.36378E+11,
-                gni: 2.67503E+11	
+            seventeen: {
+                year: 2017,
+                gdp: 12310400000000,
+                gni: 8670000
             },
-            2018: {
-                gdp: 3.85737E+11,
-                gni: 2.99137E+11	
+            eighteen: {
+                year: 2018,
+                gdp: 13894800000000,
+                gni: 9540000
             },
-            2019: {
-                gdp: 3.99322E+11,
-                gni: 3.10166E+11	
+            nine: {
+                year: 2019,
+                gdp: 14279900000000,
+                gni: 10310000
             },
-            2020: {
-                gdp: 4.25852E+11,
-                gni: 3.2058E+11	
+            twenty: {
+                year: 2020,
+                gdp: 14687700000000,
+                gni: 10520000
             },
-            2021: {
-                gdp: 5.04183E+11,
-                gni: 3.82594E+11
+            twentyone: {
+                year: 2021,
+                gdp: 17734100000000,
+                gni: 11880000
             }
         }
-    };
+    },
     { 
-        coordinates: [60.472024,8.468946],
+        coordinates: [36.204824,	138.252924],
         country: {
-            name: Norway
+            name: "Japan"
         },
         year: {
-            2012: {
-                gdp: 5.09506E+11,
-                gni: 5.1383E+11	
+            twelve: {
+                year: 2012,
+                gdp: 6272360000000,
+                gni: 50060000
             },
-            2013: {
-                gdp: 5.22762E+11,	
-                gni: 5.28332E+11	
+            thirteen: {
+                year: 2013,
+                gdp: 5212330000000,
+                gni: 48850000
             },
-            2014: {
-                gdp: 4.9841E+11,	
-                gni: 5.14173E+11	
+            fourteen: {
+                year: 2014, 
+                gdp: 4896990000000,	
+                gni: 44440000
             },
-            2015: {
-                gdp: 3.85802E+11,
-                gni: 4.01834E+11		
+            fifteen: {
+                year: 2015,
+                gdp: 4444930000000,
+                gni: 39380000
             },
-            2016: {
-                gdp: 3.68827E+11,	
-                gni: 3.84964E+11	
+            sixteen: {
+                year: 2016,
+                gdp: 5003680000000,
+                gni: 38460000
             },
-            2017: {
-                gdp: 3.98394E+11,	
-                gni: 4.13028E+11	
+            seventeen: {
+                year: 2017,
+                gdp: 4930840000000,
+                gni: 38930000
             },
-            2018: {
-                gdp: 4.37E+11,	
-                gni: 4.53417E+11	
+            eighteen: {
+                year: 2018,
+                gdp: 5037840000000,	
+                gni: 41770000
             },
-            2019: {
-                gdp: 4.04941E+11,	
-                gni: 4.17418E+11	
+            nine: {
+                year: 2019,
+                gdp: 5123320000000,	
+                gni: 42010000
             },
-            2020: {
-                gdp: 3.62198E+11,
-                gni: 3.76702E+11		
+            twenty: {
+                year: 2020,
+                gdp: 5040110000000,
+                gni: 40810000
             },
-            2021: {
-                gdp: 4.82175E+11,
-                gni: 5.03287E+11 
+            twentyone: {
+                year: 2021,
+                gdp: 4940880000000,
+                gni: 42650000
             }
         }
-    };    { 
-        coordinates: [46.818188,8.227512],
+    },
+    { 
+        coordinates: [51.165691,	10.451526],
         country: {
-            name: Switzerland
+            name: "Germany"
         },
         year: {
-            2012: {
-                gdp: 6.8642E+11,
-                gni: 7.06067E+11	
+            twelve: {
+                year: 2012,
+                gdp: 3527143188785,
+                gni: 46560000
             },
-            2013: {
-                gdp: 7.06235E+11,
-                gni: 7.26595E+11	 
+            thirteen: {
+                year: 2013,
+                gdp: 3733804649549,
+                gni: 47220000
             },
-            2014: {
-                gdp: 7.26538E+11,
-                gni: 7.3567E+11	
+            fourteen: {
+                year: 2014,
+                gdp: 3889093051024,
+                gni: 47640000
             },
-            2015: {
-                gdp: 6.94118E+11,
-                gni: 7.10792E+11		
+            fifteen: {
+                year: 2015,
+                gdp: 3357585719352,
+                gni: 45780000
             },
-            2016: {
-                gdp: 6.87895E+11,
-                gni: 6.92675E+11	
+            sixteen: {
+                year: 2016,
+                gdp: 3469853463946,
+                gni: 44280000
             },
-            2017: {
-                gdp: 6.95201E+11,
-                gni: 6.94939E+11	
+            seventeen: {
+                year: 2017,
+                gdp: 3690849152518,
+                gni: 43760000
             },
-            2018: {
-                gdp: 7.25569E+11,
-                gni: 7.0613E+11	
+            eighteen: {
+                year: 2018,
+                gdp: 3974443355020,
+                gni: 47490000
             },
-            2019: {
-                gdp: 7.21369E+11,
-                gni: 7.05462E+11		
+            nine: {
+                year: 2019,
+                gdp: 3888226035922,
+                gni: 49220000
             },
-            2020: {
-                gdp: 7.39914E+11,
-                gni: 7.25286E+11	
+            twenty: {
+                year: 2020,
+                gdp: 3889668895300,
+                gni: 48050000
             },
-            2021: {
-                gdp: 8.0064E+11,
-                gni: 7.97465E+11
+            twentyone: {
+                year: 2021,
+                gdp: 20214259934,
+                gni: 51660000
             }
         }
-    };    { 
-        coordinates: [25.354826,51.183884],
+    },
+    { 
+        coordinates: [20.593684,78.96288],
         country: {
-            name: Qatar
+            name: "India"
         },
         year: {
-            2012: {
-                gdp: 1.86834E+11,
-                gni: 1.74709E+11	
+            twelve: {
+                year: 2012,
+                gdp: 1827637859506,
+                gni: 1470000
             },
-            2013: {
-                gdp: 1.98728E+11,
-                gni: 1.88364E+11	
+            thirteen: {
+                year: 2013,
+                gdp: 1856722121394,
+                gni: 1500000
             },
-            2014: {
-                gdp: 2.06225E+11,
-                gni: 1.96924E+11
+            fourteen: {
+                year: 2014,
+                gdp: 2039127446299,
+                gni: 1550000
             },
-            2015: {
-                gdp: 1.6174E+11,
-                gni: 1.58175E+11	
+            fifteen: {
+                year: 2015,
+                gdp: 2103587813813,
+                gni: 1590000
             },
-            2016: {
-                gdp: 1.51732E+11,
-                gni: 1.50623E+11	
+            sixteen: {
+                year: 2016,
+                gdp: 2294797980509,
+                gni: 1660000
             },
-            2017: {
-                gdp: 1.61099E+11,
-                gni: 1.6068E+11	
+            seventeen: {
+                year: 2017,
+                gdp: 2651472946375,
+                gni: 1800000
             },
-            2018: {
-                gdp: 1.83335E+11,
-                gni: 1.7959E+11	 
+            eighteen: {
+                year: 2018,
+                gdp: 2702929718960,
+                gni: 1980000
             },
-            2019: {
-                gdp: 1.75838E+11,
-                gni: 1.71428E+11	
+            nine: {
+                year: 2019,
+                gdp: 2831552222520,
+                gni: 2080000
             },
-            2020: {
-                gdp: 1.44411E+11,
-                gni: 1.41367E+11	
+            twenty: {
+                year: 2020,
+                gdp: 2667687951797,
+                gni: 1890000
             },
-            2021: {
-                gdp: 1.79677E+11,
-                gni: 1.76914E+11
+            twentyone: {
+                year: 2021,
+                gdp: 3176295065497,
+                gni: 2150000
             }
         }
-    };    { 
-        coordinates: [4.535277,114.727669],
+    },
+    { 
+        coordinates: [55.378051,-3.435973],
         country: {
-            name: Brunei
+            name: "United Kingdom"
         },
         year: {
-            2012: {
-                gdp: 19047940301,
-                gni: 18590749040	
+            twelve: {
+                year: 2012,
+                gdp: 2706340967031,
+                gni: 41810000
             },
-            2013: {
-                gdp: 18093829923,
-                gni: 17893222506	
+            thirteen: {
+                year: 2013,
+                gdp: 2786315215250,
+                gni: 42800000
             },
-            2014: {
-                gdp: 17098342541,
-                gni: 17082872928
+            fourteen: {
+                year: 2014,
+                gdp: 3065223279584,
+                gni: 44590000
             },
-            2015: {
-                gdp: 12930394938,
-                gni: 13580987708
+            fifteen: {
+                year: 2015,
+                gdp: 2934857946213,
+                gni: 44480000
             },
-            2016: {
-                gdp: 11400854268,
-                gni: 12235956707
+            sixteen: {
+                year: 2016,
+                gdp: 2699659680997,
+                gni: 43150000
             },
-            2017: {
-                gdp: 12128104859,
-                gni: 12848520530
+            seventeen: {
+                year: 2017,
+                gdp: 2683399006716,
+                gni: 41740000
             },
-            2018: {
-                gdp: 13567351175,
-                gni: 13651197272
+            eighteen: {
+                year: 2018,
+                gdp: 2878152147316,
+                gni: 42180000
             },
-            2019: {
-                gdp: 13469422959,
-                gni: 13830513708
+            nine: {
+                year: 2019,
+                gdp: 2857057847953,
+                gni: 43380000
             },
-            2020: {
-                gdp: 12005825759,
-                gni: 12367616148
+            twenty: {
+                year: 2020,
+                gdp: 2704609160088,
+                gni: 38590000
             },
-            2021: {
-                gdp: 14006569576,
-                gni: 14096219676
+            twentyone: {
+                year: 2021,
+                gdp: 3131377762926,
+                gni: 44480000
             }
         }
-    };    { 
-        coordinates: [1.352083,103.819836],
+    },
+    { 
+        coordinates: [46.227638,2.213749],
         country: {
-            name: Singapore
+            name: "France"
         },
         year: {
-            2011: {
-                gdp:
+            twelve: {
+                year: 2012,
+                gdp: 2683671716967,
+                gni: 43410000
             },
-            2012: {
-                gdp: 2.95087E+11,
-                gni: 2.81965E+11	
+            thirteen: {
+                year: 2013,
+                gdp: 2811876903329,
+                gni: 43800000
             },
-            2013: {
-                gdp: 3.07576E+11, 
-                gni: 2.9101E+11	
+            fourteen: {
+                year: 2014,
+                gdp: 2855964488590,
+                gni: 43340000
             },
-            2014: {
-                gdp: 3.14851E+11,
-                gni: 3.03899E+11	
+            fifteen: {
+                year: 2015,
+                gdp: 2439188643163,
+                gni: 41130000
             },
-            2015: {
-                gdp: 3.08004E+11,
-                gni: 2.86988E+11	
+            sixteen: {
+                year: 2016,
+                gdp: 2472964344587,
+                gni: 39100000
             },
-            2016: {
-                gdp: 3.18832E+11,
-                gni: 2.99291E+11	
+            seventeen: {
+                year: 2017,
+                gdp: 2595151045198,
+                gni: 38320000
             },
-            2017: {
-                gdp: 3.43193E+11,
-                gni: 3.17256E+11	
+            eighteen: {
+                year: 2018,
+                gdp: 2790956878747,
+                gni: 41170000
             },
-            2018: {
-                gdp: 3.76998E+11,
-                gni: 3.31176E+11	
+            nine: {
+                year: 2019,
+                gdp: 2728870246706,
+                gni: 42460000
             },
-            2019: {
-                gdp: 3.75473E+11,
-                gni: 3.28531E+11	
+            twenty: {
+                year: 2020,
+                gdp: 2639008701648,
+                gni: 39440000
             },
-            2020: {
-                gdp: 3.45296E+11,
-                gni: 2.99066E+11	
-            },
-            2021: {
-                gdp: 3.96987E+11,
-                gni: 3.49154E+11
+            twentyone: {
+                year: 2021,
+                gdp: 2957879759264,
+                gni: 44160000
             }
         }
-    };    { 
-        coordinates: [37.09024,-95.712891],
+    },    
+    { 
+        coordinates: [41.87194,12.56738	],
         country: {
-            name: United States
+            name: "Italy"
         },
         year: {
-            2012: {
-                gdp: 1.6254E+13,
-                gni: 1.66756E+13	
+            twelve: {
+                year: 2012,
+                gdp: 2086957656822, 
+                gni: 36220000
             },
-            2013: {
-                gdp: 1.68432E+13,
-                gni: 1.71883E+13	
+            thirteen: {
+                year: 2013,
+                gdp: 2141924094299,
+                gni: 35570000
             },
-            2014: {
-                gdp: 1.75507E+13,
-                gni: 1.80431E+13	
+            fourteen: {
+                year: 2014,
+                gdp: 2162009615997,
+                gni: 34910000
             },
-            2015: {
-                gdp: 1.8206E+13,
-                gni: 1.86609E+13	
+            fifteen: {
+                year: 2015,
+                gdp: 1836637711061,
+                gni: 33000000
             },
-            2016: {
-                gdp: 1.86951E+13,
-                gni: 1.90205E+13	
+            sixteen: {
+                year: 2016,
+                gdp: 1877071687634,
+                gni: 31970000
             },
-            2017: {
-                gdp: 1.94773E+13,
-                gni: 1.98856E+13	
+            seventeen: {
+                year: 2017,
+                gdp: 1961796197354,
+                gni: 31380000
             },
-            2018: {
-                gdp: 2.05331E+13,
-                gni: 2.09374E+13	
+            eighteen: {
+                year: 2018,
+                gdp: 2091932426267,
+                gni: 33850000
             },
-            2019: {
-                gdp: 2.1381E+13,
-                gni: 2.17645E+13	
+            nine: {
+                year: 2019,
+                gdp: 2011302198827,
+                gni: 34930000
             },
-            2020: {
-                gdp: 2.10605E+13,
-                gni: 2.14724E+13	
+            twenty: {
+                year: 2020,
+                gdp: 1896755301518,
+                gni: 32410000
             },
-            2021: {
-                gdp: 2.33151E+13,
-                gni: 2.36171E+13
+            twentyone: {
+                year: 2021,
+                gdp: 2107702842670,
+                gni: 35990000
             }
         }
-    };    { 
-        coordinates: [64.963051,-19.020835],
+    },
+    { 
+        coordinates: [56.130366,-106.346771],
         country: {
-            name: Iceland
+            name: "Canada"
         },
         year: {
-            2012: {
-                gdp: 14751508134,
-                gni: 12884269290	
+            twelve: {
+                year: 2012,
+                gdp: 1828366481522,
+                gni: 51080000
             },
-            2013: {
-                gdp: 16125060515,
-                gni: 15287504222
+            thirteen: {
+                year: 2013,
+                gdp: 1846597421835,
+                gni: 52800000
             },
-            2014: {
-                gdp: 17867662178,
-                gni: 16897076236
+            fourteen: {
+                year: 2014,
+                gdp: 1805749878440,
+                gni: 52200000
             },
-            2015: {
-                gdp: 17517210519,
-                gni: 16543802058
+            fifteen: {
+                year: 2015,
+                gdp: 1556508816217,
+                gni: 47590000
             },
-            2016: {
-                gdp: 20793168031,
-                gni: 19826589745
+            sixteen: {
+                year: 2016,
+                gdp: 1527994741907,
+                gni: 43890000
+
             },
-            2017: {
-                gdp: 24728285177,
-                gni: 23965940756
+            seventeen: {
+                year: 2017,
+                gdp: 1649265644244,
+                gni: 42900000
             },
-            2018: {
-                gdp: 26264127687,
-                gni: 24925636306
+            eighteen: {
+                year: 2018,
+                gdp: 1725329192783,
+                gni: 45080000
             },
-            2019: {
-                gdp: 24826102120,
-                gni: 24634234578
+            nine: {
+                year: 2019,
+                gdp: 1742015045482,
+                gni: 46540000
             },
-            2020: {
-                gdp: 21694674810,
-                gni: 21074087066
+            twenty: {
+                year: 2020,
+                gdp: 1645423407568,
+                gni: 43540000
             },
-            2021: {
-                gdp: 25602419210,
-                gni: 24377259095
+            twentyone: {
+                year: 2021,
+                gdp: 1988336331717,
+                gni: 48310000
             }
         }
-    };    { 
-        coordinates: [56.26392,9.501785],
+    },    
+    { 
+        coordinates: [35.907757,127.766922],
         country: {
-            name: Denmark
+            name: "Korea"
         },
         year: {
-            2012: {
-                gdp:  3.27149E+11,
-                gni: 3.34536E+11	
+            twelve: {
+                year: 2012,
+                gdp:  1278427634343,
+                gni: 25660000
             },
-            2013: {
-                gdp: 3.43584E+11,
-                gni: 3.54464E+11
+            thirteen: {
+                year: 2013,
+                gdp: 1370795199976,
+                gni: 26980000
             },
-            2014: {
-                gdp: 3.52994E+11,
-                gni: 3.65834E+11	
+            fourteen: {
+                year: 2014,
+                gdp: 1484318219634,
+                gni: 28160000
             },
-            2015: {
-                gdp: 3.02673E+11,
-                gni: 3.11964E+11	
+            fifteen: {
+                year: 2015,
+                gdp: 1465773245547,
+                gni: 28720000
             },
-            2016: {
-                gdp: 3.13116E+11,
-                gni: 3.20813E+11	
+            sixteen: {
+                year: 2016,
+                gdp: 1500111596236,
+                gni: 29330000
             },
-            2017: {
-                gdp: 3.32121E+11,
-                gni: 3.39391E+11	
+            seventeen: {
+                year: 2017,
+                gdp: 1623901496836,
+                gni: 30300000
             },
-            2018: {
-                gdp: 3.56841E+11,
-                gni: 3.66755E+11	
+            eighteen: {
+                year: 2018,
+                gdp: 1724845615629,
+                gni: 32750000
             },
-            2019: {
-                gdp: 3.46499E+11,
-                gni: 3.5654E+11	
+            nine: {
+                year: 2019,
+                gdp: 1651422932448,
+                gni: 33830000
             },
-            2020: {
-                gdp: 3.55222E+11,
-                gni: 3.66699E+11	
+            twenty: {
+                year: 2020,
+                gdp: 1644312831906,
+                gni: 33040000
             },
-            2021: {
-                gdp: 3.98303E+11,
-                gni: 4.1208E+11
+            twentyone: {
+                year: 2021,
+                gdp: 1810955871381,
+                gni: 35110000
+
             }
         }
-    };
+    }
 ];
 
-// Define arrays to hold the country markers  for years
+// Define arrays to hold the country markers for years
 var countryOne = [];
 var countryTwo = [];
 var countryThree = [];
@@ -514,105 +616,106 @@ for (var i = 0; i < locations.length; i++ ) {
     countryOne.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
+            fillOpacity: 0.5,
             color: "white",
             fillColor: "white",
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            radius: markerSize(locations[i].year.twelve.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.twelve.year} </h3> <hr> </h3> ${locations[i].year.twelve.gdp}`)
     );
     countryTwo.push(
         L.circle(locations[i].coordinates, {
             stroke: false,
-            fillOpcaity:,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpcaity: 0.5,
+            color: "purple",
+            fillColor: "purple",
+            radius: markerSize(locations[i].year.thirteen.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.thirteen.year} </h3> <hr> </h3> ${locations[i].year.thirteen.gdp}`)
     );
     countryThree.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "red",
+            fillColor: "red",
+            radius: markerSize(locations[i].year.fourteen.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.fourteen.year} </h3> <hr> </h3> ${locations[i].year.fourteen.gdp}`)
     );
     countryFour.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "blue",
+            fillColor: "blue",
+            radius: markerSize(locations[i].year.fifteen.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.fifteen.year} </h3> <hr> </h3> ${locations[i].year.fifteen.gdp}`)
     );
     countryFive.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "green",
+            fillColor: "green",
+            radius: markerSize(locations[i].year.sixteen.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.sixteen.year} </h3> <hr> </h3> ${locations[i].year.sixteen.gdp}`)
     );
     countrySix.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "orange",
+            fillColor: "orange",
+            radius: markerSize(locations[i].year.seventeen.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.seventeen.year} </h3> <hr> </h3> ${locations[i].year.seventeen.gdp}`)
     );
     countrySeven.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "yellow",
+            fillColor: "yellow",
+            radius: markerSize(locations[i].year.eighteen.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.eighteen.year} </h3> <hr> </h3> ${locations[i].year.eighteen.gdp}`)
     );
     countryEight.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "brown",
+            fillColor: "brown",
+            radius: markerSize(locations[i].year.nine.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.nine.year} </h3> <hr> </h3> ${locations[i].year.nine.gdp}`)
     );
     countryNine.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "black",
+            fillColor: "black",
+            radius: markerSize(locations[i].year.twenty.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.twenty.year} </h3> <hr> </h3> ${locations[i].year.twenty.gdp}`)
     );
     countryTen.push(
         L.circle(locations[i].coordinates, {
             stroke:false,
-            fillOpacity: 0.75,
-            color: ,
-            fillColor: ,
-            radius: markerSize(locations[i].country.gdp)
-        }).bindPopup(`<h1>${locations[i].name}</h1> <hr> <h3> ${locations[i].year} </h3> <hr> </h3> ${locations[i].year.gdp}`)
+            fillOpacity: 0.5,
+            color: "white",
+            fillColor: "white",
+            radius: markerSize(locations[i].year.twentyone.gdp)
+        }).bindPopup(`<h1>${locations[i].country.name}</h1> <hr> <h3> ${locations[i].year.twenty.year} </h3> <hr> </h3> ${locations[i].year.twentyone.gdp}`)
     );    
 }
 
 // Create seperate layer groups for each year
-var mapOne = L.layerGroup(countryOne);
-var mapTwo = L.layerGroup(countryTwo);
-var mapThree = L.layerGroup(countryThree);
-var mapFour = L.layerGroup(countryFour);
-var mapFive = L.layerGroup(countryFive);
-var mapSix = L.layerGroup(countrySix);
-var mapSeven = L.layerGroup(countrySeven);
-var mapEight = L.layerGroup(countryEight);
-var mapNine = L.layerGroup(countryNine);
+var mapTwelve = L.layerGroup(countryOne);
+var mapThirteen = L.layerGroup(countryTwo);
+var mapFourteen = L.layerGroup(countryThree);
+var mapFifteen = L.layerGroup(countryFour);
+var mapSixteen = L.layerGroup(countryFive);
+var mapSeventeen = L.layerGroup(countrySix);
+var mapEighteen = L.layerGroup(countrySeven);
+var mapNine = L.layerGroup(countryEight);
+var mapTwenty = L.layerGroup(countryNine);
+var mapTwentyone = L.layerGroup(countryTen);
 
 //Create base layers
 var streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -631,16 +734,24 @@ var baseMaps = {
 
 // Create an overlay object
 var overlayMaps = {
-    "2012": mapOne,
-    "2013": mapTwo,
-    "2014": mapThree,
-    "2015": mapFour,
-    "2016": mapFive,
-    "2017": mapSix,
-    "2018": mapEight,
+    "2012": mapTwelve,
+    "2013": mapThirteen,
+    "2014": mapFourteen,
+    "2015": mapFifteen,
+    "2016": mapSixteen,
+    "2017": mapSeventeen,
+    "2018": mapEighteen,
     "2019": mapNine,
-    "2020": mapTen
+    "2020": mapTwenty,
+    "2021": mapTwentyone
 };
+
+var myMap = L.map("map", {
+    center: [32.30368, 64.77691],
+    zoom: 2,
+    layers: [streetmap, mapTwelve]
+});
+
 
 // Pass map layers to our layer control
 // Add the layer control to the map
@@ -648,5 +759,7 @@ L.control.layers(baseMaps, overlayMaps, {
     collapsed: false
 }).addTo(myMap);
 
-
+L.control.layers(baseMaps, overlayMaps, {
+    collapsed: false
+}).addTo(myMap);
 
