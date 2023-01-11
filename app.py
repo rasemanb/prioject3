@@ -24,9 +24,9 @@ def index():
 
 @app.route("/comparison/")
 def comparison():
-    return render_template("comparison.html", pages={
+    return render_template("map.html", pages={
         "summary": "",
-        "comparison": "active",
+        "map": "active",
         "about": ""
     })
 
