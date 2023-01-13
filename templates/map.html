@@ -1,0 +1,38 @@
+{% block content %}
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <div class="select">
+            <select class="form-select" id="select-years" multiple="multiple"></select>
+        </div>
+    </div>
+    <div class="col-md-3 col-sm-12">
+        <div class="btn-group select">
+            <select class="form-select" id="aggregate-function">
+                <option selected value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-12 plot" id="yearly-radial-plot"></div>
+    <div class="col-md-6 col-sm-12 plot" id="yearly-loudness-tempo-plot"></div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-12 plot" id="key-plot"></div>
+    <div class="col-md-6 col-sm-12 plot" id="time-signature-plot"></div>
+</div>
+<div class="row">
+    <div class="col-md-6 col-sm-12 plot" id="yearly-explicit-plot"></div>
+    <div class="col-md-6 col-sm-12 plot" id="yearly-total-plot"></div>
+</div>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}
