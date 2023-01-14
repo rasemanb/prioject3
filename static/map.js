@@ -44,9 +44,9 @@ d3.json(url).then((data => {
         },
     
         // Binding a popup to each layer
-        onEachFeature: function(feature, layer) {
+        onEachFeature: function(data, layer) {
             layer.bindPopup("<strong>" + feature.properties.country_name + "</strong><br /><br />Estimated employed population with children age 6-17: " +
-            feature.properties.DP03_16E + "<br /><br />Estimated Total Income and Benefits for Families: $" + feature.properties.DP03_75E);
+            data.gdp_2012 + "<br /><br />GDP $" + data.gdp_2012);
         }
     })
     })).addTo(myMap)
