@@ -1,67 +1,127 @@
-var myMap = L.map("map", {
-    center: [32.30368, 64.77691],
-    zoom: 2,
-});
+// // d3.select("#selDataset").on("change", optionChanged)
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+// d3.json(url).then(function (data) {
+//     // createFeatures(data.features)
+//     console.log(data);
+//     function color(gdp) {
+//         if (gdp > 1810955871380.98) {
+//             return "#E2CDFF"
+//         }
+
+//         else if (gdp > 1988336331717.42) {
+//             return "#D0AEFF"
+//         }
+
+//         else if (gdp > 2107702842669.73) {
+//             return "#B47CFF"
+//         }
+
+//         else if (gdp > 2957879759263.52) {
+//             return "#9B51FF"
+//         }
+
+//         else if (gdp > 3131377762925.95) {
+//             return "#7712FF"
+//         }
+
+//         else if (gdp > 3176295065497.24) {
+//             return "#6200E7"
+//         }
+
+//         else if (gdp > 4259934911821.64) {
+//             return "#4D00B6"
+//         }
+
+//         else if (gdp > 4940877780755.33) {
+//             return "#35007D"
+//         }
+
+//         else if (gdp > 17734062645371.4) {
+//             return "#21004D"
+//         }
+
+//         else if (gdp > 23315080560000.0) {
+//             return "#070013"
+//         }
+//     }
+//     function circle(feature) {
+//         return {
+//             opacity: 0.9,
+//             fillOpacity: 0.5,
+//             fillColor: color(feature.properties.gdp_2021),
+//             color: "ffffff",
+//             radius: Math.sqrt(feature.properties.gdp_2021) * 0.5,
+//             weight: 0.5
+//         }
+//     }
+
+//     function createFeatures(gdpData) {
+//         console.log(gdpData)
+//         function onEachFeature(feature, layer) {
+//             layer.bindPopup(`<h3>${feature.properties.country_name}</h3><hr><p>${feature.properties.gdp_2021}</p>`);
+//         }
+
+//         var gdp = L.geoJSON(gdpData, {
+//             onEachFeature: onEachFeature,
+//             pointToLayer: function (feature, latlng) {
+//                 return L.circleMarker(latlng)
+//             },
+//             style: circle
+//         });
+
+//         console.log(gdp)
+
+//         createMap(gdp)
+
+//         function createMap(gdp) {
+
+
+//             var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//                 attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//             })
+
+//             var baseMaps = {
+//                 "Street Map": street
+//             };
+
+//             var overlayMaps = {
+//                 "Gdp": gdp
+//             };
+
+//             var myMap = L.map("map", {
+//                 center: [
+//                     37.09, -95.71
+//                 ],
+//                 zoom: 5
+//                 // layers: [street, gdp]
+//             });
+
+
+//             street.addTo(myMap)
+
+
+
+//             L.control.layers(baseMaps, overlayMaps, {
+//                 collapsed: false
+//             }).addTo(myMap);
+//         }
+//     }
+// })
+
+var map = L.map('map').setView([51.505, -0.09], 13);
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-}).addTo(myMap);
+}).addTo(map);
 
-d3.json(url).then((data => { 
+L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
 
-    const years = [
-        "2012",
-        "2013",
-        "2014",
-        "2015",
-        "2016",
-        "2017",
-        "2018",
-        "2019",
-        "2020",
-        "2021"
-    ]
+var el = document.createElement("div")
 
-    // Create a new choropleth layer.
-    geojson = L.choropleth(data, {
-  
-      // Define which property in the features to use.
-        valueProperty: "gdp_2012",
-    
-        // Set the color scale.
-        scale: ["#ffffb2", "#b10026"],
-    
-        // The number of breaks in the step range
-        steps: 10,
-    
-        // q for quartile, e for equidistant, k for k-means
-        mode: "q",
-        style: {
-            // Border color
-            color: "#fff",
-            weight: 1,
-            fillOpacity: 0.8
-        },
-    
-        // Binding a popup to each layer
-        onEachFeature: function(data, layer) {
-            layer.bindPopup("<strong>" + feature.properties.country_name + "</strong><br /><br />Estimated employed population with children age 6-17: " +
-            data.gdp_2012 + "<br /><br />GDP $" + data.gdp_2012);
-        }
-    })
-    })).addTo(myMap)
+var content = document.createTextNode("Hello")
 
+el.appendChild(content)
 
-
-
-
-
-
-
-
-
-
-
-
-
-})
+document.body.appendChild(el)
