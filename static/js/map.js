@@ -113,16 +113,61 @@ function mapUpdate(year) {d3.json(url).then(data => {
         "2020",
         "2021"
     ]
+    var layer1 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    })
 
-    let rad = data.map(_ => ({
+    var map = L.map("map", {
+        center: [
+            40.4637, -3.7492
+        ],
+        zoom: 3,
+        layers: [layer1]
+    });
+
+    var base = {
+        "Street":layer1
+    }
+
+    var rad = data.map(_ => ({
         radius: years.map(y => _[`gdp_${y}`])
     }))
+
+    var newgdp = new L.LayerGroup();
+
+    var overlay = {
+        "Gdp": newgdp
+    };
+
+    function style(feature) {
+        return {
+            opacity: 0.9,
+            fillOpacity: 0.8,
+            fillColor: color(rad),
+            color: "ffffff",
+            radius: Math.sqrt(rad) * 0.000007,
+            weight: 0.5
+        }
+        
+    }
+
+    L.geoJSON(data, {
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng)
+        },
+        style: style,
+        onEachFeature: function (feature, layer) {
+        layer.bindPopup(`<h3>${feature.properties.country_name}</h3><hr><p>${feature.properties.gdp_2021}</p>`);
+        }
+
+    }).addTo(newgdp)
+
+    gdp.addTo(map) 
 
 })
 
 }
 
 function optionChanged(event) {
-    const chart = event.target.value
-    plotCharts(chart)
+    mapUpdate(event)
 }
