@@ -1,46 +1,25 @@
 body {
-    padding: 0;
-    margin: 0;
-  }
+  padding: 0;
+  margin: 0;
+}
 
-  .jumbotron{
-    position: relative;
-    padding:0 !important;
-    margin-top:5px !important;
-    background: #eee;
-    margin-top: 5px;
-    text-align:center;
-    margin-bottom: 0 !important;
+.jumbotron {
+  position: relative;
+  padding: 0;
+  margin-top: 5px;
+  background: #eee;
+  margin-top: 5px;
+  text-align: center;
+  margin-bottom: 0;
 }
-.container-fluid{
-    padding:0 !important;
+
+#map, body, html {
+  height: 1000px;
+  width: 2000px;
 }
-.col-md-12 jumbotron jumbotron-fluid text-center{
-    background:rgba(157,52,99,0.7);    
+
+canvas{
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto;
 }
-  
-  /* Set map, body, and html to 100% of the screen size. */
-  #map,
-  body,
-  html {
-    height: 100%;
-  }
-  /* Setting the padding and border margins for the legend */
-  .info {
-    padding: 5px 8px;
-    background: #edf2ef;
-    border-radius: 8px;
-  }
-  /* Setting the height of the color blocks */
-  .legend {
-    line-height: 18px;
-    color: #000000;
-  }
-  /* Setting the height and width of the legend */
-  .legend i {
-    width: 15px;
-    height: 15px;
-    float: right;
-    margin-right: 10px;
-    opacity: 0.9;
-  }
