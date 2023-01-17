@@ -71,9 +71,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2014),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2014) * 0.000007,
             weight: 0.5
         }
     }
@@ -82,9 +82,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2015),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2015) * 0.000007,
             weight: 0.5
         }
     }
@@ -93,9 +93,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2016),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2016) * 0.000007,
             weight: 0.5
         }
     }
@@ -104,9 +104,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2017),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2017) * 0.000007,
             weight: 0.5
         }
     }
@@ -115,9 +115,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2018),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2018) * 0.000007,
             weight: 0.5
         }
     }
@@ -126,9 +126,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2019),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2019) * 0.000007,
             weight: 0.5
         }
     }
@@ -137,9 +137,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2020),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2020) * 0.000007,
             weight: 0.5
         }
     }
@@ -148,9 +148,9 @@ d3.json(url).then(function (data) {
         return {
             opacity: 0.9,
             fillOpacity: 0.8,
-            fillColor: color(feature.properties.gdp_2013),
+            fillColor: color(feature.properties.gdp_2021),
             color: "#8B0000",
-            radius: Math.sqrt(feature.properties.gdp_2013) * 0.000007,
+            radius: Math.sqrt(feature.properties.gdp_2021) * 0.000007,
             weight: 0.5
         }
     }
@@ -280,8 +280,6 @@ d3.json(url).then(function (data) {
         })
     
         L.control.layers(baseMaps, overlays).addTo(map);
-
-
 })
 
 
