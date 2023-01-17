@@ -18,7 +18,7 @@ def index():
     return render_template("index.html", pages={
         "visuals":"active",
         "map":"",
-        "about":""
+        "pie":""
     })
 
 @app.route("/map/")
@@ -26,15 +26,15 @@ def map():
     return render_template("map.html", pages={
         "visuals": "",
         "map": "active",
-        "about": ""
+        "pie": ""
     })
 
-@app.route("/about/")
-def about():
-    return render_template("about.html", pages={
+@app.route("/pie/")
+def pie():
+    return render_template("pie.html", pages={
         "visuals": "",
         "map": "",
-        "about": "active"
+        "pie": "active"
     })
 
 @app.route("/api/data.json")
@@ -75,4 +75,4 @@ def geo():
     return jsonify(geojson)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=7000)
