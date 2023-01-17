@@ -1,5 +1,3 @@
-d3.select("#selDataset").on("change", optionChanged)
-
 function plotCharts() {d3.json(url).then(data => {
     const years = [
         "2012",
@@ -66,11 +64,6 @@ function plotCharts() {d3.json(url).then(data => {
 //     });
 
 //     let vals = data.country.map(v => v.gdp)
-}
-
-function optionChanged(event) {
-    const chart = event.target.value
-    plotCharts(chart)
 }
 
 plotCharts()
