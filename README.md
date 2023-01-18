@@ -50,8 +50,9 @@ Responsibilities:
   - Created tables to connect all downloaded data collected .
 
 ***Nick***
-
-was for responsible for creating the pie charts, 
+Responsibilities:
+  -Researching and implementing Chart.js library
+  -Building Interactive Pie Chart 
 
 ***Lyndsay***
 
@@ -66,10 +67,6 @@ Responsibilities:
 Responsibilities:
   - Creating the Powerpoint.
   
-***Nick***
-Responsibilities:
-  -Researching and implementing Chart.js library
-  -Building Interactive Pie Chart
   
       
 
