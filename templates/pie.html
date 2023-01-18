@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .chartBox {
+            width: 400px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Top 10 Countries Debt-to-GDP Ratio</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script>const url = "{{url_for('data')}}";</script>
+
+</head>
+
+<body>
+    <header>
+        <nav id="navbar" class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('index') }}">Country GDP</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link {{pages['visuals']}}" aria-current="page"
+                                href="{{ url_for('index') }}">Line Charts</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{pages['map']}}" href="{{ url_for('map') }}">Map</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{pages['pie']}}" href="{{ url_for('pie') }}">Pie Chart</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Top 10 Countries Debt-to-GDP Ratio</h1>
+                <p>Hover over the Pie Chart to see a Countries GDP-to-Debt Ratio</p>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="chartBox">
+                <canvas id="myChart"></canvas>
+            </div>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script>
+                //Data Block
+                const data = {
+                    labels: ['Japan', 'Italy', 'United States', 'France', 'Canada', 'United Kingdom', 'Germany', 'China', 'S. Korea'],
+                    datasets: [{
+                        label: 'Debt To GDP Ratio',
+                        data: [237, 135, 107, 98.1, 89.7, 80.7, 69.62, 59.8, 50.5, 37.7],
+                        borderWidth: 1,
+                        backgroundColor: ['#9BD0F5', '#FF3C33', '#FFA533', '#9CFF33', '#33FFE9', '#339CFF', '#6833FF', '#D733FF', '#FF3383', '#FFF933'],
+                    }]
+                };
+                const actions =
+                    [{
+                        name: 'Position: center',
+                        handler(chart) {
+                            chart.options.scales.x.position = 'center';
+                            chart.options.scales.y.position = 'center';
+                            chart.update();
+                        }
+                    }]
+
+
+
+                //Config Block
+                const config = {
+                    type: 'pie',
+                    data,
+                    options: {
+                    }
+                }
+                //Render BLock
+                const myChart = new Chart(
+                    document.getElementById('myChart'),
+                    config,
+                    actions
+                );
+            </script>
+        </div>
+</body>
+
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</body>
+
+</html>
