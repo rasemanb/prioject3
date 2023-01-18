@@ -34,19 +34,36 @@ the pie charts, and plotly to create the line charts.
 
 ***Ben*** 
 
-was responsible for creating the dashboard and line charts, 
+Responsibilities: 
+  - Creating the Flask powered API and linking that to our database.
+  - Creating interactive dashboard using Bootstrap.
+  - Using Plotly to create two separate line charts for GDP and GNI.
+  - Creating templates for each page on our dashboard.
+  - ETL
 
 ***Kim***
 
-was responsible for pulling the numbers, cleaning and creating the tables,
+Responsibilities:
+  - Uploaded csv files on countries GDP/GNI, Debt to GDP ratio, population, & coordinates. 
+  - Cleaned up the dataframes and linked to Postgres. 
+  - Created tables to connect all downloaded data collected .
 
 ***Nick***
 
 was for responsible for creating the pie charts, 
 
-***Lyndsay*** 
+***Lyndsay***
 
-was responsible for creating the map, and Will created the powerpoint.
+Responsibilities:
+  - Creating a map using JavaScript and Leaflet.
+  - Creating markers with radius based on GDP.
+  - Binding popups to each country stating name and GDP.
+  - Creating 10 different layer groups for each year GDP.
+
+***Will***
+
+Responsibilities:
+  - Creating the Powerpoint.
       
 
 
