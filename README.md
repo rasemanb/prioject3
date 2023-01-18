@@ -33,15 +33,19 @@ We also used JavaScript and Leaflet to create the map, flask and bootstrap, to c
 the pie charts, and plotly to create the line charts.
 
 ***Ben*** 
+
 was responsible for creating the dashboard and line charts, 
 
 ***Kim***
+
 was responsible for pulling the numbers, cleaning and creating the tables,
 
 ***Nick***
+
 was for responsible for creating the pie charts, 
 
 ***Lyndsay*** 
+
 was responsible for creating the map, and Will created the powerpoint.
       
 
