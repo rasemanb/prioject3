@@ -51,8 +51,8 @@ Responsibilities:
 
 ***Nick***
 Responsibilities:
-  -Researching and implementing Chart.js library
-  -Building Interactive Pie Chart 
+  * Researching and implementing Chart.js library
+  * Building Interactive Pie Chart 
 
 ***Lyndsay***
 
