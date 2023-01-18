@@ -40,32 +40,17 @@ select * from coordinates;
 select * from debt;
 select * from population;
 
-select coordinates."Country Name", coordinates.Latitude, coordinates.Longitude, gdp."Series Name", gdp."2012", gdp."2013", gdp."2014", gdp."2015", gdp."2016", gdp."2017", gdp."2018", gdp."2019", gdp."2020", gdp."2021"
-from coordinates
-join gdp
-on coordinates."Country Name" = gdp."Country Name";
-
 create table coordinates (
 "Country Name" varchar primary key,
 Latitude float, 
 Longitude float
 );
 
-select coordinates."Country Name", coordinates.Latitude, coordinates.Longitude, gni."Series Name", gni."2012", gni."2013", gni."2014", gni."2015", gni."2016", gni."2017", gni."2018", gni."2019", gni."2020", gni."2021"
-from coordinates
-join gni
-on coordinates."Country Name" = gni."Country Name";
-
 create table debt (
 "Country Name" varchar primary key, 
 debt_rank int,
 debt_to_gdp_ratio float 
 );	
-
-select coordinates."Country Name", coordinates.Latitude, coordinates.Longitude, debt.debt_rank, debt.debt_to_gdp_ratio
-from coordinates
-join debt
-on coordinates."Country Name" = debt."Country Name";
 
 create table population (
 "Country Name" varchar primary key,
