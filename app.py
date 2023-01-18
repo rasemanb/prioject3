@@ -4,12 +4,6 @@ from sqlalchemy import create_engine, inspect
 
 from config import user, passw, host, port, name
 
-import itertools
-
-import requests, json
-
-import os
-
 app = Flask(__name__)
 engine = create_engine(f"postgresql://{user}:{passw}@{host}:{port}/{name}")
 
