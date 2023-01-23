@@ -28,10 +28,9 @@ include at least 3 views.
 
 # Overview
 Our project displays the top 10 GDP country's for 2021, and their respective last 10 years of GDP and GNI data.
-We used API calls to obtain the numbers and coordinates which was cleaned through Python using ETL and uploaded to SQL where the tables
-and numbers were consolidated.
-We also used JavaScript and Leaflet to create the map, flask and bootstrap, to create the dashboard, chart.js was used to create
-the pie charts, and plotly to create the line charts.
+We used API calls to obtain the numbers and coordinates which was cleaned through Python using Pandas for an ETL and uploaded to SQL
+where the tables and numbers were consolidated. We also used JavaScript and Leaflet to create the map, flask and bootstrap to create
+the dashboard, chart.js to create the pie charts, and plotly to create the line charts.
 
 ***Ben*** 
 
