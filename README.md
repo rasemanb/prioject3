@@ -1,4 +1,4 @@
-# project3
+# GDP-GNI-Dashboard
 
 # Background 
 For this project, we were asked to create and interactive dashboard that utilizes a flask powered api call and returns the data in
